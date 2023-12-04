@@ -1,4 +1,4 @@
-version: "3.9"
+version: "3.7"
 
 services:
   app:
@@ -11,7 +11,7 @@ services:
       - .env
     depends_on:
       - mysqldb
-  
+
   mysqldb:
     container_name: mysqldb
     image: mysql
