@@ -1,0 +1,46 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: ./kompose convert -f Documents/dev/SD2023/docker-compose.yml
+    kompose.version: 1.26.0 (40646f47)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: mysqldb
+  name: mysqldb
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: mysqldb
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      annotations:
+        kompose.cmd: ./kompose convert -f Documents/dev/SD2023/docker-compose.yml
+        kompose.version: 1.26.0 (40646f47)
+      creationTimestamp: null
+      labels:
+        io.kompose.service: mysqldb
+    spec:
+      containers:
+        - env:
+            - name: MYSQL_DATABASE
+              value: sd23
+            - name: MYSQL_ROOT_PASSWORD
+              value: root
+          image: mysql
+          name: mysqldb
+          ports:
+            - containerPort: 3306
+          resources: {}
+          volumeMounts:
+            - mountPath: /var/lib/mysql
+              name: mysqldb-claim0
+      restartPolicy: Always
+      volumes:
+        - name: mysqldb-claim0
+          persistentVolumeClaim:
+            claimName: mysqldb-claim0
+status: {}
