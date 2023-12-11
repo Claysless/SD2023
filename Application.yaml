@@ -1,0 +1,12 @@
+project: default
+source:
+  repoURL: 'https://github.com/Claysless/SD2023.git'
+  path: ./
+  targetRevision: HEAD
+destination:
+  server: 'https://kubernetes.default.svc'
+  namespace: sge
+syncPolicy:
+  automated:
+    prune: true
+    selfHeal: true
