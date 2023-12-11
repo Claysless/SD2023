@@ -8,6 +8,7 @@ metadata:
   labels:
     io.kompose.service: mysqldb
   name: mysqldb
+  namespace: sge
 spec:
   replicas: 1
   selector:
