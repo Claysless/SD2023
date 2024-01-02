@@ -1,0 +1,23 @@
+## Default values for prometheus-mysql-exporter.
+## This is a YAML-formatted file.
+## Declare variables to be passed into your templates.
+
+## namespaceOverride overrides the namespace which the resources will be deployed in
+namespaceOverride: "sge"
+
+serviceMonitor:
+  # enabled should be set to true to enable prometheus-operator discovery of this service
+  enabled: true
+  additionalLabels:
+    release: prometheus
+
+
+# mysql connection params which build the my.cnf config
+mysql:
+  db: "sd23"
+  host: "mysqldb"
+  pass: "root"
+  port: 3306
+  protocol: ""
+  user: "root"
+
