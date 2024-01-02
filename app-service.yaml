@@ -10,10 +10,12 @@ metadata:
   name: search-service
   namespace: sge
 spec:
+  type: NodePort
   ports:
     - name: "8000"
       port: 8000
       targetPort: 8000
+      nodePort: 30008
   selector:
     io.kompose.service: app
 status:
