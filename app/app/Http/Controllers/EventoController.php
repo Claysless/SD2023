@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Evento;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
 
 class EventoController extends Controller
 {
@@ -12,8 +13,11 @@ class EventoController extends Controller
     public function index()
     {
 
-        $eventos = Evento::all();
-        return response()->json($eventos);
+        // $eventos = Evento::all();
+        // return response()->json($eventos);
+
+        $response = Http::get('http://10.2.15.143:30150/events');
+        return $response;
 
 
     }
