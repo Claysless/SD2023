@@ -25,10 +25,6 @@ jobs:
     - name: Set up Docker Buildx
       uses: docker/setup-buildx-action@v3
 
-    - name: Build and push
-      uses: docker/build-push-action@v5
-      with:
-        context: ./InterfaceWeb
-        file: ./InterfaceWeb/Dockerfile
-        push: true
-        tags:  claysless/app:latest
+    - name: Pull and push
+      run: |
+        docker push: claysless/app:latest
