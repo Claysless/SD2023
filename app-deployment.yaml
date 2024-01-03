@@ -276,7 +276,7 @@ spec:
                 configMapKeyRef:
                   key: VITE_PUSHER_SCHEME
                   name: app--env
-          image: claysless/app:1.0.0
+          image: claysless/app:1.0.1
           name: app
           ports:
             - containerPort: 8000

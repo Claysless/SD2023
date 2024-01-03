@@ -3,7 +3,7 @@ version: "3.7"
 services:
   app:
     container_name: app
-    image: claysless/app:1.0.0
+    image: claysless/app:1.0.1
     build: app/
     ports:
       - "8000:8000"
