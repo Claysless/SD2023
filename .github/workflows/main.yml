@@ -26,5 +26,4 @@ jobs:
       uses: docker/setup-buildx-action@v3
 
     - name: Pull and push
-      run: |
-        docker push: claysless/app:latest
+      run: docker push claysless/app:latest
