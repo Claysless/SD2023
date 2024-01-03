@@ -1,0 +1,34 @@
+name: CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+
+    - name: Login to DockerHub
+      uses: docker/login-action@v3
+      with:
+        username: claysless
+        password: dckr_pat_vy1t8Cdpe5FRvSXnkyQMEVIVbpk
+
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v3
+
+    - name: Build and push
+      uses: docker/build-push-action@v5
+      with:
+        context: ./InterfaceWeb
+        file: ./InterfaceWeb/Dockerfile
+        push: true
+        tags:  claysless/app:latest
